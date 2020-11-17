@@ -1,1 +1,53 @@
-<p>address-form-step works!</p>
+
+<div class="columns">
+  <div class="column is-half">
+    <h1 class="title">Address Details</h1>
+
+    <form #f="ngForm" (ngSubmit)="f.valid && goNext()" novalidate>
+      <div class="field">
+        <label class="label" for="addressLine1">Address Line 1: </label>
+        <input class="input" id="addressLine1" name="addressLine1" type="text" required minlength="3"
+               #addressLine1="ngModel" [class.is-danger]="f.submitted && addressLine1.invalid"
+               placeholder="Address Line 1" [(ngModel)]="userFormModel.addressModel.addressLine1" />
+        <p class="help is-danger" *ngIf="f.submitted && addressLine1.invalid">Address Line 1 is invalid.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="addressLine2">Address Line 2: </label>
+        <input class="input" id="addressLine2" name="addressLine2" type="text" required minlength="3"
+               #addressLine2="ngModel" [class.is-danger]="f.submitted && addressLine2.invalid"
+               placeholder="Address Line 2" [(ngModel)]="userFormModel.addressModel.addressLine2" />
+        <p class="help is-danger" *ngIf="f.submitted && addressLine2.invalid">Address Line 2 is invalid.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="zipCode">Zip Code: </label>
+        <input class="input" id="zipCode" name="zipCode" type="text" required minlength="4" maxlength="6"
+               #zipCode="ngModel" [class.is-danger]="f.submitted && zipCode.invalid"
+               placeholder="Zip Code" [(ngModel)]="userFormModel.addressModel.zipCode" />
+        <p class="help is-danger" *ngIf="f.submitted && zipCode.invalid">Zip Code is invalid.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="city">City: </label>
+        <input class="input" id="city" name="city" type="text" required minlength="3"
+               #city="ngModel" [class.is-danger]="f.submitted && city.invalid"
+               placeholder="City" [(ngModel)]="userFormModel.addressModel.city" />
+        <p class="help is-danger" *ngIf="f.submitted && city.invalid">City is invalid.</p>
+      </div>
+
+      <div class="field is-grouped">
+        <p class="control">
+          <input type="button" class="button is-info"
+                 value="Previous Step" [routerLink]="['..', 'user']" />
+        </p>
+        <p class="control">
+          <input type="submit" class="button is-primary" value="Next Step" />
+        </p>
+      </div>
+    </form>
+
+    <app-form-status currentStep="2"></app-form-status>
+
+  </div>
+</div>
