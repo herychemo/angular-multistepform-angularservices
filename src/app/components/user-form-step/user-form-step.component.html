@@ -1,1 +1,49 @@
-<p>user-form-step works!</p>
+
+<div class="columns">
+  <div class="column is-half">
+    <h1 class="title">User Details</h1>
+
+    <form #f="ngForm" (ngSubmit)="f.valid && goNext()" novalidate>
+      <div class="field">
+        <label class="label" for="firstName">First Name: </label>
+        <input class="input" id="firstName" name="firstName" type="text" required minlength="3"
+               #firstName="ngModel" [class.is-danger]="f.submitted && firstName.invalid"
+               placeholder="First Name" [(ngModel)]="userFormModel.userModel.firstName" />
+        <p class="help is-danger" *ngIf="f.submitted && firstName.invalid">First Name is invalid.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="lastName">Last Name: </label>
+        <input class="input" id="lastName" name="lastName" type="text" required minlength="3"
+               #lastName="ngModel" [class.is-danger]="f.submitted && lastName.invalid"
+               placeholder="Last Name" [(ngModel)]="userFormModel.userModel.lastName" />
+        <p class="help is-danger" *ngIf="f.submitted && lastName.invalid">Last Name is invalid.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="username">Username: </label>
+        <input class="input" id="username" name="username" type="text" required minlength="5"
+               #username="ngModel" [class.is-danger]="f.submitted && username.invalid"
+               placeholder="Username" [(ngModel)]="userFormModel.userModel.username" />
+        <p class="help is-danger" *ngIf="f.submitted && username.invalid">Username is invalid.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="email">Email: </label>
+        <input class="input" id="email" name="email" type="email" required
+               #email="ngModel" [class.is-danger]="f.submitted && email.invalid"
+               placeholder="Email" [(ngModel)]="userFormModel.userModel.email" />
+        <p class="help is-danger" *ngIf="f.submitted && email.invalid">Email is invalid.</p>
+      </div>
+
+      <div class="field is-grouped">
+        <p class="control">
+          <input type="submit" class="button is-primary" value="Next Step" />
+        </p>
+      </div>
+    </form>
+
+    <app-form-status currentStep="1"></app-form-status>
+
+  </div>
+</div>
