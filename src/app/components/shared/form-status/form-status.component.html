@@ -1,1 +1,27 @@
-<p>form-status works!</p>
+
+<div class="py-2">
+
+  <article class="tile is-child notification is-info px-5">
+    <p class="subtitle">
+      Step: <b>{{ currentStep }}</b>
+      Of <b>{{ totalSteps }}</b>
+    </p>
+
+    <div class="form-progress columns">
+
+      <div *ngFor="let stepNumber of steps;"
+           [class.previous-step]="stepNumber < currentStep"
+           [class.current-step]="stepNumber == currentStep"
+           class="progress-step column">
+        <div class="progress-indicator">
+          <p class="has-text-centered is-size-5">
+            {{ stepNumber }}
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </article>
+
+</div>

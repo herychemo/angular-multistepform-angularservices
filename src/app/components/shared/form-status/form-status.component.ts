@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserFormDomainServiceService } from '../../../services/user-form-domain-service.service';
 
 @Component({
   selector: 'app-form-status',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormStatusComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  currentStep: number;
 
-  ngOnInit(): void {
+  get totalSteps(): number {
+    return this.userFormDomainServiceService.totalSteps;
   }
+
+  get steps(): number[] {
+    return Array(this.totalSteps)
+      .fill(0)
+      .map((value, index) => index + 1);
+  }
+
+  constructor(
+    private userFormDomainServiceService: UserFormDomainServiceService
+  ) { }
+  ngOnInit(): void {}
 
 }

@@ -1,0 +1,57 @@
+
+.form-progress {
+  --form-progress-background: white;
+
+  --form-progress-inactive-step-background: #7BD7FC;
+  --form-progress-inactive-step-color: white;
+  --form-progress-inactive-step-line-color: #7BD7FC;
+
+  --form-progress-active-step-background: #125699;
+  --form-progress-active-step-color: white;
+  --form-progress-active-step-line-color: #125699;
+
+  background: var(--form-progress-background);
+  border: 0;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+.form-progress .progress-step {
+  padding-left: 0;
+  padding-right: 0;
+}
+.form-progress .progress-step::before,
+.form-progress .progress-step::after {
+  content: " ";
+  background: var(--form-progress-inactive-step-line-color);
+  display: inline-block;
+  position: relative;
+  top: -4px;
+  height: 4px;
+  width: -moz-calc(50% - 15px);
+  width: -webkit-calc(50% - 15px);
+  width: calc(50% - 15px);
+}
+.form-progress .progress-step .progress-indicator {
+  color: var(--form-progress-inactive-step-color);
+  margin: 0;
+  display: inline-block;
+  background: var(--form-progress-inactive-step-background);
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+.form-progress .progress-step.previous-step .progress-indicator,
+.form-progress .progress-step.current-step .progress-indicator {
+  background: var(--form-progress-active-step-background);
+  color: var(--form-progress-active-step-color);
+}
+
+.form-progress .progress-step.previous-step::before,
+.form-progress .progress-step.previous-step::after,
+.form-progress .progress-step.current-step::before {
+  background: var(--form-progress-active-step-line-color);
+}
