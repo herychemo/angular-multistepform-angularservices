@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserFormDomainServiceService } from '../../../services/user-form-domain-service.service';
+import { UserFormDomainService } from '../../../services/user-form-domain.service';
 
 @Component({
   selector: 'app-form-status',
@@ -22,7 +22,7 @@ export class FormStatusComponent implements OnInit {
   }
 
   constructor(
-    private userFormDomainServiceService: UserFormDomainServiceService
+    private userFormDomainServiceService: UserFormDomainService
   ) { }
   ngOnInit(): void {}
 

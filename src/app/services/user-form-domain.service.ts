@@ -4,7 +4,7 @@ import { UserFormModel } from '../model/domain/user-form-model';
 @Injectable({
   providedIn: 'root'
 })
-export class UserFormDomainServiceService {
+export class UserFormDomainService {
 
   model: UserFormModel;
   readonly totalSteps: number;

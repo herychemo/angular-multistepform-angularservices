@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserFormDomainServiceService} from '../../services/user-form-domain-service.service';
+import {UserFormDomainService} from '../../services/user-form-domain.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserFormModel} from '../../model/domain/user-form-model';
 
@@ -15,7 +15,7 @@ export class UserFormStepComponent implements OnInit {
   }
 
   constructor(
-    public userFormDomainServiceService: UserFormDomainServiceService,
+    public userFormDomainServiceService: UserFormDomainService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
