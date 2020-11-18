@@ -12,7 +12,7 @@ export class FormStatusComponent implements OnInit {
   currentStep: number;
 
   get totalSteps(): number {
-    return this.userFormDomainServiceService.totalSteps;
+    return this.userFormDomainService.totalSteps;
   }
 
   get steps(): number[] {
@@ -22,7 +22,7 @@ export class FormStatusComponent implements OnInit {
   }
 
   constructor(
-    private userFormDomainServiceService: UserFormDomainService
+    private userFormDomainService: UserFormDomainService
   ) { }
   ngOnInit(): void {}
 

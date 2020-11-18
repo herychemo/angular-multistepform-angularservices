@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class TopicsFormStepComponent implements OnInit {
 
   get userFormModel(): UserFormModel {
-    return this.userFormDomainServiceService.model;
+    return this.userFormDomainService.model;
   }
 
   get availableTopics(): string[] {
@@ -28,7 +28,7 @@ export class TopicsFormStepComponent implements OnInit {
   }
 
   constructor(
-    public userFormDomainServiceService: UserFormDomainService,
+    private userFormDomainService: UserFormDomainService,
     private router: Router,
     private route: ActivatedRoute
   ) { }

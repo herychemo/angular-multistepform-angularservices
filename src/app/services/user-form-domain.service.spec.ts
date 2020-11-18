@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { UserFormDomainService } from './user-form-domain.service';
 
-describe('UserFormDomainServiceService', () => {
+describe('UserFormDomainService', () => {
   let service: UserFormDomainService;
 
   beforeEach(() => {

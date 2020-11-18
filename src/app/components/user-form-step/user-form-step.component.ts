@@ -11,11 +11,11 @@ import {UserFormModel} from '../../model/domain/user-form-model';
 export class UserFormStepComponent implements OnInit {
 
   get userFormModel(): UserFormModel {
-    return this.userFormDomainServiceService.model;
+    return this.userFormDomainService.model;
   }
 
   constructor(
-    public userFormDomainServiceService: UserFormDomainService,
+    private userFormDomainService: UserFormDomainService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
