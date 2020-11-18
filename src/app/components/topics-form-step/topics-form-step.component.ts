@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {UserFormModel} from '../../model/domain/user-form-model';
+import {UserFormDomainService} from '../../services/user-form-domain.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-topics-form-step',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopicsFormStepComponent implements OnInit {
 
-  constructor() { }
+  get userFormModel(): UserFormModel {
+    return this.userFormDomainServiceService.model;
+  }
 
-  ngOnInit(): void {
+  get availableTopics(): string[] {
+    return [
+      'Java',
+      'C#',
+      'TypeScript',
+      'C++',
+      'C',
+      'Python',
+      'Ruby',
+      'SQL'
+    ];
+  }
+
+  constructor(
+    public userFormDomainServiceService: UserFormDomainService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+  ngOnInit(): void {}
+
+  goNext(): void {
+    this.router.navigate(['..', 'result'], { relativeTo: this.route});
   }
 
 }

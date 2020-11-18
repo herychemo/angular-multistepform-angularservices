@@ -1,1 +1,43 @@
-<p>topics-form-step works!</p>
+
+<div class="columns">
+  <div class="column is-half">
+    <h1 class="title">Topics Details</h1>
+
+    <form #f="ngForm" (ngSubmit)="f.valid && goNext()" novalidate>
+      <div class="field">
+        <label class="checkbox" for="subscribed">
+          <input id="subscribed" name="subscribed" type="checkbox" #favoriteTopics="ngModel"
+                 [(ngModel)]="userFormModel.topicsModel.subscribed" />
+          Subscribed
+        </label>
+      </div>
+
+      <div class="field" *ngIf="favoriteTopics.value">
+        <div class="select is-multiple">
+          <label class="label" for="favoriteTopics">Favorite Topics: </label>
+          <select multiple size="4" required [(ngModel)]="userFormModel.topicsModel.favoriteTopics"
+                  id="favoriteTopics" name="favoriteTopics" #favoriteTopics="ngModel" >
+
+            <option *ngFor="let topic of availableTopics;" [value]="topic">{{ topic }}</option>
+          </select>
+          <p class="help is-danger" *ngIf="f.submitted && favoriteTopics.invalid">
+            You need to select Favorite Topics
+          </p>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <p class="control">
+          <input type="button" class="button is-info"
+                 value="Previous Step" [routerLink]="['..', 'address']" />
+        </p>
+        <p class="control">
+          <input type="submit" class="button is-primary" value="Complete" />
+        </p>
+      </div>
+    </form>
+
+    <app-form-status currentStep="3"></app-form-status>
+
+  </div>
+</div>
