@@ -1,1 +1,40 @@
-<p>form-result works!</p>
+
+<div class="tile is-ancestor">
+  <div class="tile is-8">
+      <div class="tile is-parent is-vertical">
+
+        <article class="tile is-child notification is-info">
+          <p class="title">User Details</p>
+          <p class="subtitle">Contents:</p>
+          <div class="content">
+            <b>First Name: </b> <i>{{ userFormModel.userModel.firstName }}</i> <br>
+            <b>Last Name: </b> <i>{{ userFormModel.userModel.lastName }}</i> <br>
+            <b>Username: </b> <i>{{ userFormModel.userModel.username }}</i> <br>
+            <b>Email: </b> <i>{{ userFormModel.userModel.email }}</i> <br>
+          </div>
+        </article>
+
+        <article class="tile is-child notification is-primary">
+          <p class="title">Address Details</p>
+          <p class="subtitle">Contents:</p>
+          <div class="content">
+            <b>Address Line 1: </b> <i>{{ userFormModel.addressModel.addressLine1 }}</i> <br>
+            <b>Address Line 2: </b> <i>{{ userFormModel.addressModel.addressLine2 }}</i> <br>
+            <b>Zip Code: </b> <i>{{ userFormModel.addressModel.zipCode }}</i> <br>
+            <b>City: </b> <i>{{ userFormModel.addressModel.city }}</i> <br>
+          </div>
+        </article>
+
+        <article class="tile is-child notification is-success">
+          <p class="title">Topics Details</p>
+          <p class="subtitle">Contents:</p>
+          <div class="content">
+            <b>Is Subscribed: </b> <i>{{ userFormModel.topicsModel.subscribed ? 'Yes': 'No' }}</i> <br>
+            <b>Topics: </b> <i>{{ userFormModel.topicsModel.favoriteTopics }}</i> <br>
+          </div>
+        </article>
+
+      </div>
+  </div>
+</div>
+

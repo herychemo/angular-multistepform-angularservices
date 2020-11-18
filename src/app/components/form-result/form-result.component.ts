@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserFormDomainService} from '../../services/user-form-domain.service';
+import {UserFormModel} from '../../model/domain/user-form-model';
 
 @Component({
   selector: 'app-form-result',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormResultComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  get userFormModel(): UserFormModel {
+    return this.userFormDomainServiceService.model;
   }
+
+  constructor(
+    public userFormDomainServiceService: UserFormDomainService
+  ) { }
+  ngOnInit(): void {}
 
 }
